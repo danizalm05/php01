@@ -1,0 +1,8 @@
+ip.dst != 192.168.1.18 
+
+ telnet google.com 80  
+
+ GET  google.com HTTP/1.1  
+ 
+ 
+ nslookup www.google.com  
