@@ -8,7 +8,7 @@ $age = 44; // Integer
 $height = 1.87; // Float
 $can_vote = true; // Boolean
 // Array
-$address = array('street' => '123 Main St', 
+$address = array('street' => '155 Main St', 
                   'city'  => 'Pittsburgh');
  
 $state = NULL;
