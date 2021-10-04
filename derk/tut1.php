@@ -1,7 +1,7 @@
  
  <?php  
  //https://www.youtube.com/watch?v=NihZYkNpslE
-// Here are the different data types
+ 
 $f_name = "Derek"; // String
 $l_name = 'Banas'; // You can use single quotes
 $age = 44; // Integer
