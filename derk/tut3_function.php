@@ -72,7 +72,51 @@
           echo "Sum = $sum<br>";
           echo "Difference = $difference<br>";
  
-          # ---------- MAP ----------
+          
+		   # ---------- MAP ----------
+          # Apply a function to values in a list
+          function double($x){
+            return $x * $x;
+          }
+          $list = [1,2,3,4];
+          $dbl_list = array_map('double', $list);
+          # Print human readable version of list
+		  
+           
+		  echo "<br><pre> x * x <br> ".print_r($dbl_list, true) . "</pre>";
+          echo '<br>';
+ 
+          # ---------- REDUCE ----------
+          # Reduce values in an array to a single value
+          # Multiply each value times the others
+          function mult($x, $y){
+            $x *= $y;
+            return $x;
+          }
+          $dflt =1;#default  first  value
+		  $prod = array_reduce($list, 'mult', $dflt);
+		 # echo "<br><pre> mult <br> ".print_r($prod, true) . "</pre>";
+        
+          print_r($prod);
+          echo '<br>';
+ 
+          # ---------- FILTER ----------
+          # Filter an array with a function
+          # Get only even values
+          function isEven($x){
+            return ($x % 2) == 0;
+          }
+          $even_list = array_filter($list, 'isEven');
+        #print_r($even_list);
+        echo "<br><pre> filter <br> ".print_r($even_list, true) . "</pre>";
+        
+		 echo '<br>';
+ 
+		  
+		  
+		  
+		  
+		  
 	?>
   </body>
 </html>
