@@ -1,7 +1,7 @@
  <!--  POST -->
  <?php  
  //http://www.newthinktank.com/2019/12/learn-php-one-video/
- //54:00
+ //54:00    57.30
  
 ?>
 <html lang="en">
@@ -40,8 +40,10 @@
     # Verify that the values are numbers with is_numeric
     if(!empty($_POST["num1"]) && !empty($_POST["num2"])){
       # Will delete anything that isn't a float
-      $num1 = filter_input(INPUT_POST, 'num1', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-      $num2 = filter_input(INPUT_POST, 'num2', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+      $num1 = filter_input(INPUT_POST, 'num1', FILTER_SANITIZE_NUMBER_FLOAT,
+                        	  FILTER_FLAG_ALLOW_FRACTION);
+      $num2 = filter_input(INPUT_POST, 'num2', FILTER_SANITIZE_NUMBER_FLOAT,
+                        	  FILTER_FLAG_ALLOW_FRACTION);
       # sprintf returns a formatted string
       $output = sprintf("%.1f + %.1f = %.1f", $num1, $num2, ($num1 + $num2));
       # htmlspecialchars escapes output to avoid XSS attacks
@@ -57,7 +59,9 @@
     # Other Validations : php.net/manual/en/filter.filters.validate.php
     # Sanitization Filters : php.net/manual/en/filter.filters.sanitize.php
  
-    # Converting HTML special characters
+    
+	
+	# Converting HTML special characters
     # Convert special characters into HTML entities
     $con_html = '<a href="#">Sample</a>';
     echo $con_html . "<br>";

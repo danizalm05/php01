@@ -22,7 +22,7 @@ $movment_rows = DB::query($sql,array());
                box-sizing: border-box;  border: 2px solid #ccc;    border-radius: 4px;
                background-color: #a198b1;"
 	    value="  <?php echo $movment_rows[0]['notes'];?> ">	
-		  <?php echo $movment_rows[0]['notes'];?>
+		         <?php echo $movment_rows[0]['notes'];?>
  </textarea>
 	
 	
