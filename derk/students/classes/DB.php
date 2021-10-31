@@ -1,6 +1,6 @@
  <?php
 require_once ('cfg.php');
-define("DEBUG",true);
+define("DEBUG",false);
 class DB {
 	
   public static function echoSQlParms($query,$params){
