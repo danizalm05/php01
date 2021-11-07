@@ -20,27 +20,35 @@ $url2 = 'https://practice.geeksforgeeks.org/courses/online';
 $url3 = 'https://walla.co.il';
 
 $url4 = 'https://www.w3schools.com/';
-$local_file=  "W3Schools Online Web Tutorials.htm";
+$local_file=  'idx.htm';
  
 if(isset($_GET['s_url'])) {# url to scrape 
-     $url = $_GET['s_url'];
+     $url = $_GET['s_url'] ;
 	 
 } else {
 	
     $url = $local_file; 
 }
  
+?>
+ 
+<form method="get">
+	URL: <input name="s_url" type="text" value="<?=$url;?>"/><br/>
+    <input name="submit" type="submit" value="Submit"/>
+</form>
 
+<?php
 
 $purl =parse_url( $url, $component = -1 );
 if  (!empty($purl['host'])){
        $host_url = $purl['host'];
        $host_scheme = $purl['scheme'];
 }else{
-	$host_url = $url5;
+	$host_url =$local_file;
     $host_scheme = 'local';
 	
 }
+
 echo "Host = <b><a href=".$host_scheme.'://'.$host_url.">".$host_url."</a></b>";
 echo "<br><pre>".print_r($purl, true) . "</pre>";
 
@@ -52,6 +60,8 @@ $loc_url = array();
 $ext_url = array();
 $ext_counter =1; 
 $loc_counter =1; 
+
+ 
 echo "<br>Links<br>--------------<br>";
 foreach($html->find('a') as $e) {
 	 
@@ -83,8 +93,7 @@ foreach($html->find('a') as $e) {
  }
 echo "<br>loc_url<pre>".print_r($loc_url, true) . "</pre>";
 echo "<br>ext_url<pre>".print_r($ext_url, true) . "</pre>";
-
-
+ 
 // find all image
 echo "<br>Images<br>--------------<br><br>";
 foreach($html->find('img') as $e)

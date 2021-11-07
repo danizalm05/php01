@@ -124,3 +124,10 @@ echo $html->find('td[align="center"]', 1)->plaintext.'<br><hr>';
 echo "<br>extract text from HTML<br>--------------<br><br>";
 echo $html->plaintext;
 ?>
+
+
+<form method="post">
+	URL: <input name="url" type="text" value="<?=$url;?>"/><br/>
+	Search: <input name="search" type="text" value="<?=$search;?>"/>
+	<input name="submit" type="submit" value="Submit"/>
+</form>
