@@ -48,6 +48,8 @@ $info = curl_getinfo($ch);
 curl_close($ch);
 
 $html = str_get_html( $output);
+
+echo "<br><h1>  index-source.html<br>---------------</h1><br>";
 echo $html;
 echo "<br>info = curl_getinfo<pre>".print_r($info, true) . "</pre>"; 
 
@@ -90,9 +92,9 @@ echo "<br>loc_url<pre>".print_r($loc_url, true) . "</pre>";
 echo "<br>ext_url<pre>".print_r($ext_url, true) . "</pre>";
 
 
-// find all image
-echo "<br>Images<br>--------------<br><br>";
-foreach($html->find('img') as $e)
+// find all form 
+echo "<br>form<br>--------------<br><br>";
+foreach($html->find('form') as $e)
     echo $e->src . '<br>';
 
 // find all image with full tag
@@ -125,9 +127,4 @@ echo "<br>extract text from HTML<br>--------------<br><br>";
 echo $html->plaintext;
 ?>
 
-
-<form method="post">
-	URL: <input name="url" type="text" value="<?=$url;?>"/><br/>
-	Search: <input name="search" type="text" value="<?=$search;?>"/>
-	<input name="submit" type="submit" value="Submit"/>
-</form>
+ 
