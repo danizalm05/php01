@@ -5,6 +5,24 @@
 
 include('../inc/simple_html_dom.php');
 
+function scraping_generic($html, $search) {
+	// Didn't find it yet.
+	$return = false;
+ // get article block
+    foreach($html->find($search) as $found) {
+		// Found at least one.
+		$return - true;
+		echo "found a: " . $search . "<br/><pre>";
+		$found->dump();
+		echo "</pre><br/>";
+    }
+    
+    // clean up memory
+    $html->clear();
+    unset($html);
+
+    return $return;
+}
 
 function isexternal($host_url,$url){
  
@@ -90,13 +108,12 @@ foreach($html->find('a') as $e) {
  }
 echo "<br>loc_url<pre>".print_r($loc_url, true) . "</pre>";
 echo "<br>ext_url<pre>".print_r($ext_url, true) . "</pre>";
-
-
-// find all form 
+ 
+ 
+// find all form  $html->find('input[type=text]', 0);
 echo "<br>form<br>--------------<br><br>";
-foreach($html->find('form') as $e)
-    echo $e->src . '<br>';
-
+ 
+$response = scraping_generic($html,'a');
 // find all image with full tag
 echo "<br>Images with full tag<br>--------------<br><br>";
 foreach($html->find('img') as $e)

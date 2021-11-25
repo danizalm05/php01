@@ -1,3 +1,8 @@
+
+
+
+
+
 <?php
 // example of how to use basic selector to retrieve HTML contents
 // https://host.io/   A Powerful and Fast Domain Name Data API
@@ -14,8 +19,8 @@ function isexternal($host_url,$url){
    return strcasecmp($host_url, $temp_url['host']); 
 	 // empty host will indicate url like '/relative.php'
 }
-
-$url1 =  'http://geeksforgeeks.org/php/#basics';
+$url1 =   'https://iamachild.wordpress.com/';
+$url1 =  'https://conchigliadivenere.wordpress.com/';
 $url2 = 'https://practice.geeksforgeeks.org/courses/online';
 $url3 = 'https://walla.co.il';
 
@@ -27,7 +32,7 @@ if(isset($_GET['s_url'])) {# url to scrape
 	 
 } else {
 	
-    $url = $local_file; 
+    $url = $url1;//$local_file; 
 }
  
 ?>
@@ -51,6 +56,7 @@ if  (!empty($purl['host'])){
 
 echo "Host = <b><a href=".$host_scheme.'://'.$host_url.">".$host_url."</a></b>";
 echo "<br><pre>".print_r($purl, true) . "</pre>";
+
 
 $html = file_get_html($url );
  
@@ -94,11 +100,18 @@ foreach($html->find('a') as $e) {
 echo "<br>loc_url<pre>".print_r($loc_url, true) . "</pre>";
 echo "<br>ext_url<pre>".print_r($ext_url, true) . "</pre>";
  
+// find all form
+echo "<br>form<br>--------------<br><br>";
+foreach($html->find('form') as $e){
+    $e->dump() ;
+	#echo "<br>form<pre>".print_r($e->dump(), true) . "</pre>";
+	#echo $e->src . '<br>';
+	
+}
 // find all image
 echo "<br>Images<br>--------------<br><br>";
 foreach($html->find('img') as $e)
     echo $e->src . '<br>';
-
 // find all image with full tag
 echo "<br>Images with full tag<br>--------------<br><br>";
 foreach($html->find('img') as $e)
